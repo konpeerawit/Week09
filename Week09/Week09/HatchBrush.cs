@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 
 namespace Week09
@@ -16,6 +17,11 @@ namespace Week09
         public HatchBrush(HatchStyle darkVertical, object s, Color violet) : this(darkVertical, s)
         {
             this.violet = violet;
+        }
+
+        internal void Dispose()
+        {
+            throw new NotImplementedException();
         }
     }
 }
