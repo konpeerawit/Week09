@@ -21,13 +21,11 @@ namespace Week09
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Point[] pt = { new Point(10,22),
-                          new Point(188,246),
-                          new Point(250,192),
-                          new Point(220,48),
-            };
-            g.FillClosedCurve(Brushes.Blue, pt);
-            g.DrawClosedCurve(Pens.Red, pt);
+            Image image = Image.FromFile("d:\\59030194_8.jpg");
+            //ใส่รูปโดยใช้ไฟล์ png เพื้อใช้เป็น Texture
+            TextureBrush brush = new TextureBrush(image);
+            Rectangle rect = new Rectangle(10, 10, 180, 150);
+            g.FillEllipse(brush, rect);
             g.Dispose();
 
         }
