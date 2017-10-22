@@ -11,23 +11,13 @@ using System.Windows.Forms;
 
 namespace Week09
 {
-    public partial class Form1 : Form
+    private void Form1_Paint(object sender, PaintEventArgs e)
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
-        private void Form1_Paint(object sender, PaintEventArgs e)
-        {
-            Graphics g = e.Graphics;
-            Image image = Image.FromFile("d:\\59030194_8.jpg");
-            //ใส่รูปโดยใช้ไฟล์ png เพื้อใช้เป็น Texture
-            TextureBrush brush = new TextureBrush(image);
-            Rectangle rect = new Rectangle(10, 10, 180, 150);
-            g.FillEllipse(brush, rect);
-            g.Dispose();
-
-        }
+        Graphics g = e.Graphics;
+        Bitmap bmp = new Bitmap("D:\\59030194.jpg");
+        this.SetClientSizeCore(bmp.Width + 20, bmp.Height + 20);
+        g.DrawImage(bmp, 10, 10);
+        g.Dispose();
     }
+    
 }
